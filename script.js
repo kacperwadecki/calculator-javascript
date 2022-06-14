@@ -45,19 +45,21 @@ const chooseOperator = (oper) => {
     else if((previousResult === '' && currentResult !== '' && oper === '√') || (previousResult === '' && currentResult !== '' && oper === '^') || (previousResult === '' && currentResult !== '' && oper === '%') || (previousResult === '' && currentResult !== '' && oper === 'NEG')){
         calculate(oper);
         isResult = true;
-        if(oper !== 'NEG' || oper !== '%'){
+        if(oper !== 'NEG' && oper !== '%'){
             operator2 = oper;
         }
     }
     else if(previousResult === '' && currentResult !== ''){
         previousResult = currentResult;
         currentResult = '';
-        if(oper !== 'NEG' || oper !== '%'){
+        if(oper !== 'NEG' && oper !== '%'){
             operator2 = oper;
         }
     }
     else if(previousResult !== '' && currentResult ===''){
-        operator2 = oper;
+        if(oper !== 'NEG' && oper !== '%'){
+            operator2 = oper;
+        }
     }
     
 }
